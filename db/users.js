@@ -30,6 +30,15 @@ async function createUser(username,emailId,contactNo,password){
     }).catch(err=>{throw err})
 }
 
+async function getUserById(userId){
+    const client = await MongoClient.connect(MongoURL);
+    const eventDb = await client.db(dbName);
+    const users = await eventDb.collection('users');
+
+    const result = await users.findOne({"_id":ObjectID(userId)})
+    return result;
+}
+
 async function authenticateUser(emailId,password){
     const client = await MongoClient.connect(MongoURL);
     const eventDb = await client.db(dbName);
@@ -105,10 +114,6 @@ exports = module.exports = {
     authenticateUser,
     createUser,
     addEventToList,
-    removeEventFromList
+    removeEventFromList,
+    getUserById
 } 
-
-
-
-// user id - 5f86d7e1504522308c3410cc
-// event id - 5f8702331e1c2842ac1f52eb
