@@ -15,13 +15,13 @@ export class Registered extends Component {
                         <Route
                             exact
                             path='/'
-                            component= {(props)=><Dashboard></Dashboard>} 
+                            component= {(props)=><Dashboard {...props} user={this.props.user}></Dashboard>} 
                         ></Route>
 
                         <Route
                             exact
                             path='/createEvent'
-                            component= {(props)=><CreateEvent></CreateEvent>} 
+                            component= {(props)=><CreateEvent {...props} user={this.props.user}></CreateEvent>} 
                         ></Route>
 
                     </Switch>
