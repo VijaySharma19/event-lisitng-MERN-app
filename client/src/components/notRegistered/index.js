@@ -15,13 +15,13 @@ export class NotRegistered extends Component {
                         <Route
                             exact
                             path='/'
-                            component= {(props)=><Login></Login>} 
+                            component= {(props)=><Login {...props} user= {this.props.user} addUser = {this.props.addUser}></Login>} 
                         ></Route>
 
                         <Route
                             exact
                             path='/signup'
-                            component= {(props)=><SignUp></SignUp>} 
+                            component= {(props)=><SignUp {...props} user= {this.props.user} addUser = {this.props.addUser}></SignUp>} 
                         ></Route>
 
                     </Switch>
