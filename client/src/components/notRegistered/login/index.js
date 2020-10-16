@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 // Components
 import Message from '../../message/Message'
+import './css/style.css';
 
 export class Login extends Component {
     constructor(props){
@@ -56,33 +57,40 @@ export class Login extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Login</h1>
-                <form onSubmit={this.login}>
-                    <label>
-                        Email : 
-                        <input 
-                            required
-                            type="email" 
-                            name="email"
-                            value={this.state.email}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <label>
-                        Password : 
-                        <input 
-                            required
-                            type="password" 
-                            name="password"
-                            value={this.state.password}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <button type="submit">Login</button><br></br>
-                    <span>----OR----</span><br></br>
-                    <Link to='/signup'>Create New Account</Link>
-                </form>
+            <div className="login-wrapper container-fluid">
+                <h1 className="heading">Login</h1>
+                <div className="form-wrapper">
+                    <form className="form" onSubmit={this.login}>
+                        <label className="form-group item">
+                            <center>Email Id</center>
+                            
+                            <center><input 
+                                required
+                                type="email" 
+                                name="email"
+                                placeholder="Enter your Email Id"
+                                className="form-control"
+                                value={this.state.email}
+                                onChange = {this.handleChange}
+                            ></input></center>
+                        </label>
+                        <label className="form-group item">
+                        <center>Password</center> 
+                            <center><input 
+                                required
+                                type="password" 
+                                name="password"
+                                placeholder="Enter your Password"
+                                className="form-control"
+                                value={this.state.password}
+                                onChange = {this.handleChange}
+                            ></input></center>
+                        </label>
+                        <center><button type="submit" className="btn btn-block item">Login</button></center>
+                        <span className="item" style={{textAlign:"center"}}>----OR----</span>
+                        <center><Link to='/signup' className="btn btn-block item">Create New Account</Link></center>
+                    </form>
+                </div>
                 <Message
                     show={this.state.showMessage}
                     onHide={this.onHide}
