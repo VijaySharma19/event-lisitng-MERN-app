@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { FaUserTie,FaPhoneSquareAlt,FaUserLock } from "react-icons/fa";
+import { MdMail } from 'react-icons/md';
+import './css/style.css';
 
 //Components
 import Message from '../../message/Message';
@@ -113,51 +116,61 @@ export class SignUp extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Sign Up</h1>
-                <form onSubmit={this.onSubmit}>
-                    <label>
-                        Name : 
-                        <input 
-                            required
-                            type="text" 
-                            name="username"
-                            value={this.state.username}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <label>
-                        Email : 
-                        <input 
-                            required
-                            type="email" 
-                            name="email"
-                            value={this.state.email}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <label>
-                        Contact No : 
-                        <input 
-                            required
-                            type="text" 
-                            name="contact"
-                            value={this.state.contact}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <label>
-                        Password : 
-                        <input 
-                            required
-                            type="password" 
-                            name="password"
-                            value={this.state.password}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>
-                    <button type="submit">Sign Up</button>
-                </form>
+            <div className="signup-wrapper container fluid">
+                <h1 className='heading'>Create Account</h1>
+                <div className="form-wrapper container fluid">
+                    <form className="form" onSubmit={this.onSubmit}>
+                        <label className="item row">
+                            <span className='col col-3'><FaUserTie></FaUserTie> </span> 
+                            <input 
+                                required
+                                type="text" 
+                                name="username"
+                                className="col col-9"
+                                placeholder="Choose Username"
+                                value={this.state.username}
+                                onChange = {this.handleChange}
+                            ></input>
+                        </label>
+                        <label className=" item row">
+                            <span className='col col-3'><MdMail></MdMail> </span> 
+                            <input 
+                                required
+                                type="email" 
+                                name="email" 
+                                className="col col-9"
+                                placeholder="Enter Email Id"
+                                value={this.state.email}
+                                onChange = {this.handleChange}
+                            ></input>
+                        </label>
+                        <label className="item row">
+                            <span className='col col-3'><FaPhoneSquareAlt></FaPhoneSquareAlt> </span> 
+                            <input 
+                                required
+                                type="text" 
+                                name="contact"
+                                className=" col col-9"
+                                placeholder="Enter Contact No"
+                                value={this.state.contact}
+                                onChange = {this.handleChange}
+                            ></input>
+                        </label>
+                        <label className="item row">
+                            <span className='col col-3'><FaUserLock></FaUserLock> </span> 
+                            <input 
+                                required
+                                type="password" 
+                                name="password"
+                                className="col col-9"
+                                placeholder="Enter Password"
+                                value={this.state.password}
+                                onChange = {this.handleChange}
+                            ></input>
+                        </label>
+                        <button type="submit " className="btn btn-block item">Create Account</button>
+                    </form>
+                </div>
                 <Message
                     show={this.state.showMessage}
                     onHide={this.onHide}
