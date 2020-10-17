@@ -1,0 +1,30 @@
+.header-wrapper { 
+    background-color: #fff0f0;
+}
+
+.header-wrapper .row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-wrapper .row .item>.link{
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    margin: 0.5rem 0.5rem;
+    background-color : #463333;
+    color : #fff0f0;
+    border-radius: 30px;
+    border:none;
+}
+.header-wrapper .row .item>.link:hover{
+    color  : #ffffff;
+    background-color : #ffffff;
+    color : #463333;
+    border-radius: 51px;
+    background: #fff0f0;
+    box-shadow:  32px 32px 53px #968e8e, 
+             -32px -32px 53px #ffffff;
+}
+

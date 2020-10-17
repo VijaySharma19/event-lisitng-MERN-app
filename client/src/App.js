@@ -51,18 +51,21 @@ export class App extends Component {
     }})
   }
 
-  // removeUser = ()=>{
-  //   this.setState({user : {
-  //     isLoggedIn : false
-  //   }})
-  // }
+  removeUser = ()=>{
+    axios.get('/users/logout').then(()=>{
+      this.setState({user : {
+        isLoggedIn : false
+      }})
+    }).catch(err=>alert(err))
+    
+  }
 
 
 
   render() {
     var loggedInDependent;
     if(this.state.user.isLoggedIn){
-      loggedInDependent =<Registered user = {this.state.user}  ></Registered>
+      loggedInDependent =<Registered user = {this.state.user} removeUser ={this.removeUser} ></Registered>
     }
     else{
       loggedInDependent = <NotRegistered user = {this.state.user} addUser = {this.addUser}></NotRegistered>

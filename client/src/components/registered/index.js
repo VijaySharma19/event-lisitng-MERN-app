@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router ,Route,Switch } from 'react-router-dom';
+import { BrowserRouter as Router ,Redirect,Route,Switch } from 'react-router-dom';
 
 // Components
 import Dashboard from "./dashboard";
 import CreateEvent from "./createEvent";
+import Header from './header/Header';
 
 export class Registered extends Component {
     render() {
         return (
             <div>
+                
                 <Router>
+                    <Header removeUser= {this.props.removeUser} ></Header>
                     <Switch>
 
                         <Route
@@ -25,6 +28,7 @@ export class Registered extends Component {
                         ></Route>
 
                     </Switch>
+                    <Redirect to='/'></Redirect>
                 </Router>
             </div>
         )

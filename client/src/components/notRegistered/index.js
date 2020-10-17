@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router ,Route,Switch } from 'react-router-dom'
+import { BrowserRouter as Router ,Redirect,Route,Switch } from 'react-router-dom'
 import './css/style.css'
 
 // Components
@@ -28,6 +28,7 @@ export class NotRegistered extends Component {
                                 ></Route>
 
                             </Switch>
+                            <Redirect to='/'></Redirect>
                         </Router>
                     </div>
                     <div className="secondItem ">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import './css/style.css';
 
 export class CreateEvent extends Component {
 
@@ -53,96 +54,107 @@ export class CreateEvent extends Component {
 
     render() {
         let today = new Date() ;
-        let date = (today.getDate()+1).toString();
+        let date = (today.getDate()+1).toString(); 
         let month = (today.getMonth()+1).toString();
         let year = (today.getFullYear()).toString();
         let currentDate = year+'-'+month+'-'+date;
         return (
-            <div>
-                <h1>Create Event</h1>
-                <form onSubmit = {this.submit}>
-                    <label>
-                        Title : <br />
-                        <input
-                            required
-                            type='text'
-                            name="title"
-                            value = {this.state.title}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>    <br />
-                    <label>
-                        Date : <br />
-                        <input
-                            required
-                            type='date'
-                            name="date"
-                            min={currentDate}
-                            value = {this.state.date}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label>    <br />
-                    <label>
-                        Time : <br />
-                        <input
-                            required
-                            type='time'
-                            name="time"
-                            value = {this.state.time}
-                            onChange = {this.handleChange}
-                        ></input>
-                    </label> <br/>
-                    <label>
-                        Location : <br />
-                        <label>
+            <div className='createEvent'>
+                <div className='createEvent-wrapper container-fluid'>
+                    <h1 className='heading'>Create Event</h1>
+                    <form className='form row' onSubmit = {this.submit}>
+                        <label className = 'col col-12 item'>
+                            <span className='subItem1' style={{fontSize:'1.5rem'}}>Title : </span>
                             <input
-                                type="radio"
-                                value="The Junkyard Café, Connaught Place, Delhi"
-                                checked={this.state.location === "The Junkyard Café, Connaught Place, Delhi"}
-                                onChange = {this.changeLocation} 
+                                required
+                                type='text'
+                                name="title"
+                                className='subItem2'
+                                placeholder="Choose a Title for Event. "
+                                value = {this.state.title}
+                                onChange = {this.handleChange}
                             ></input>
-                            The Junkyard Café, Connaught Place, Delhi
-                        </label> <br />
-                        <label>
+                        </label>    
+                        <label className = 'col col-7 item'>
+                            <span className='subItem1'  style={{fontSize:'1.5rem'}}>Date : </span> 
                             <input
-                                type="radio"
-                                value="Antisocial, Hauz Khas Village, Delhi"
-                                checked={this.state.location === "Antisocial, Hauz Khas Village, Delhi"}
-                                onChange = {this.changeLocation} 
+                                required
+                                type='date'
+                                name="date"
+                                className='subItem2'
+                                min={currentDate}
+                                value = {this.state.date}
+                                onChange = {this.handleChange}
                             ></input>
-                            Antisocial, Hauz Khas Village, Delhi
-                        </label> <br />
-                        <label>
+                        </label>   
+                        <label className = 'col col-5 ' style={{textAlign:"right",paddingRight:'1rem'}} >
+                            <span  style={{fontSize:'1.5rem'}}>Time : </span>
                             <input
-                                type="radio"
-                                value="Turquoise Cottage, Sector 38, Noida"
-                                checked={this.state.location === "Turquoise Cottage, Sector 38, Noida"}
-                                onChange = {this.changeLocation} 
+                                required
+                                type='time'
+                                name="time"
+                                value = {this.state.time}
+                                onChange = {this.handleChange}
                             ></input>
-                            Turquoise Cottage, Sector 38, Noida
-                        </label> <br />
-                        <label>
-                            <input
-                                type="radio"
-                                value="Raasta, DLF Cyber City, Delhi"
-                                checked={this.state.location === "Raasta, DLF Cyber City, Delhi"}
-                                onChange = {this.changeLocation} 
-                            ></input> 
-                            Raasta, DLF Cyber City, Delhi
-                        </label> <br />
-                    </label>  
-                    <label>
-                        About Event : <br />
-                        <textarea
-                            required
-                            name="description"
-                            value={this.state.description}
-                            onChange={this.handleChange} 
-                        ></textarea>
-                    </label> <br />
-                    <button type="submit">Book Event</button>
-                </form>
-                
+                        </label> 
+                        <label className = 'col col-12 item'>
+                            <span style={{fontSize:'1.5rem'}}>Location : </span>
+                            <label className = 'col col-12 item'>
+                                <input
+                                    type="radio"
+                                    className='subItem1'
+                                    value="The Junkyard Café, Connaught Place, Delhi"
+                                    checked={this.state.location === "The Junkyard Café, Connaught Place, Delhi"}
+                                    onChange = {this.changeLocation} 
+                                ></input>
+                                <span className='subItem2'>The Junkyard Café, Connaught Place, Delhi</span>
+                            </label> 
+                            <label className = 'col col-12 item'>
+                                <input
+                                    type="radio"
+                                    className='subItem1'
+                                    value="Antisocial, Hauz Khas Village, Delhi"
+                                    checked={this.state.location === "Antisocial, Hauz Khas Village, Delhi"}
+                                    onChange = {this.changeLocation} 
+                                ></input>
+                                <span className='subItem2'>Antisocial, Hauz Khas Village, Delhi</span>
+                            </label> 
+                            <label className = 'col col-12 item'>
+                                <input
+                                    className='subItem1'
+                                    type="radio"
+                                    value="Turquoise Cottage, Sector 38, Noida"
+                                    checked={this.state.location === "Turquoise Cottage, Sector 38, Noida"}
+                                    onChange = {this.changeLocation} 
+                                ></input>
+                                <span className='subItem2'>Turquoise Cottage, Sector 38, Noida</span>
+                            </label> 
+                            <label className = 'col col-12 item'>
+                                <input
+                                    type="radio"
+                                    className='subItem1'
+                                    value="Raasta, DLF Cyber City, Delhi"
+                                    checked={this.state.location === "Raasta, DLF Cyber City, Delhi"}
+                                    onChange = {this.changeLocation} 
+                                ></input> 
+                                <span className='subItem2'>Raasta, DLF Cyber City, Delhi</span>
+                            </label> 
+                        </label>  
+                        <label className = 'col col-12 item'>
+                            <span style={{fontSize:'1.5rem'}} >About Event : </span><br />
+                            <textarea
+                                required
+                                name="description"
+                                placeholder="Write something about event."
+                                className = 'col col-12 item'
+                                value={this.state.description}
+                                onChange={this.handleChange} 
+                            ></textarea>
+                        </label> 
+                        <button className='btn btn-block item'  type="submit"  style={{fontSize:'1.5rem'}}>Book Event</button>
+                    </form>
+                    
+                </div>
             </div>
         )
     }

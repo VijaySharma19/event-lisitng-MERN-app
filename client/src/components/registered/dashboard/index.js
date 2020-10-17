@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
+import './css/style.css'
 //Components
 import EventList from './EventList';
 
@@ -32,19 +32,22 @@ export class Dashboard extends Component {
     render() {
         var eventsDependentComponent;
         if(this.state.events.length === 0){
-            eventsDependentComponent = <h2>No Events</h2>
+            eventsDependentComponent = <div className='no-events'><h2>No Events</h2></div>
         }
         else{
-            eventsDependentComponent = <EventList 
-                                            user={this.props.user} 
-                                            eventList={this.state.events}
-                                            updateEventList={this.updateEventList}
-                                        ></EventList>
+            eventsDependentComponent = <div className='events container-fluid ' style={{padding:'0px'}}>
+                                            
+                                            <EventList 
+                                                user={this.props.user} 
+                                                eventList={this.state.events}
+                                                updateEventList={this.updateEventList}
+                                            ></EventList>
+                                        </div>
         }
+
         return (
-            <div>
-                <h1>Dashboard</h1>
-                {eventsDependentComponent}
+            <div className="dashboard-wrapper container-fluid">
+                {eventsDependentComponent}             
             </div>
         )
     }

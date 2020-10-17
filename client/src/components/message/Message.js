@@ -10,17 +10,18 @@ export class Message extends Component {
                 centered
                 
                 >
-                <Modal.Header  closeButton>
+                <Modal.Header style={{backgroundColor:'#463333',color:'#fff0f0'}}  closeButton>
                     <Modal.Title id="contained-modal-title-vcenter" >
-                    Alert!
+                    <span style={{backgroundColor:'#463333'}}>Alert!</span>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body >
+                <Modal.Body style={{textAlign:'center',backgroundColor:'#fff0f0'}} >
                     <div >
-                        <h4 >
+                        <h4 style={{textAlign:'center'}} >
                             {this.props.message}
                         </h4>
                         <Button  
+                            style={{backgroundColor:'#463333',color:'#fff0f0'}}
                             onClick={this.props.onHide} 
                         >
                             Okay!
