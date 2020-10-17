@@ -20,7 +20,7 @@ app.use('/events',require('./routes/eventsRoute').route)
 
 
 // Start server
-const PORT = 4000 || process.env.PORT;
+const PORT = process.env.PORT || 3232;
 
 //server static assets if in production
 if (process.env.NODE_ENV === "production") {
