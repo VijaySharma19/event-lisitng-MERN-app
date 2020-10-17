@@ -6,6 +6,7 @@ const MongoURL = process.env.Mongo_URL;
 const dbName = process.env.db_Name;
 
 
+
 async function createUser(username,emailId,contactNo,password){
     const client = await MongoClient.connect(MongoURL);
     const eventDb = await client.db(dbName);

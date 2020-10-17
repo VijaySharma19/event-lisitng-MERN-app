@@ -20,7 +20,7 @@ export class Header extends Component {
             <div className="header-wrapper container-fluid">
                 <div className="row">
                     <div className=" item item1 "><Link className='link btn' to='/'>Dashboard</Link></div>
-                    <div className=" item item2 "><Link className="link btn" to='/createEvent'>Book Event</Link></div>
+                    <div className=" item item2 "><Link className="link btn" to='/createEvent'>Create</Link></div>
                     <div className=" item item3 "><Link  className='link btn' onClick={this.logout} to='/'>Logout</Link></div>
                 </div>
 
